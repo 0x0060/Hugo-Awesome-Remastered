@@ -91,7 +91,7 @@ author = "Your Name"
    You can add your own pages or posts by creating new Markdown files in the `content` directory. For example, to add a new post, navigate to:
 
 ```
-content/posts/my-first-post.md
+hugo new posts/my-first-post.md
 ```
 
 Add your content using Markdown syntax.
