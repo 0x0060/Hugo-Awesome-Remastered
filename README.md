@@ -24,7 +24,7 @@ git clone https://github.com/0x0060/Blog-Template
 Move into the `themes` directory inside the cloned `Blog` project:
 
 ```
-cd Blog/themes
+cd Blog-Template/themes
 ```
 
 ### 3. Clone the Hugo-Awesome-Remastered Theme
