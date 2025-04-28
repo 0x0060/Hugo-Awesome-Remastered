@@ -1,0 +1,54 @@
+{{ define "main" }}
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">{{ .Title }}</h1>
+                
+                <!-- Date and Author on the same line -->
+                <div class="post-meta">
+                    {{ with .Date }}
+                        {{ $ISO_time := dateFormat "2006-01-02T15:04:05-07:00" . }}
+                        <time datetime="{{ $ISO_time }}" itemprop="datePublished">
+                            {{ . | time.Format ":date_medium" }}
+                        </time>
+                    {{ end }}
+
+                    {{ if .Params.author }}
+                        <span class="post-author">
+                            by
+                            {{ if .Params.authorlink }}
+                                <a href="{{ .Params.authorlink }}" target="_blank">{{ .Params.author }}</a>
+                            {{ else }}
+                                {{ .Params.author }}
+                            {{ end }}
+                        </span>
+                    {{ end }}
+                </div>
+
+                <!-- Tags -->
+                <div class="tags-list">
+                    {{ with .Params.tags }}
+                        {{ if ge (len .) 1 }}
+                            {{ range . }}
+                                <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}/">#{{ . }}</a>
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+                </div>
+            </header>
+
+            <!-- Table of Contents -->
+            {{ partial "toc.html" . }}
+
+            <!-- Post Content -->
+            <div class="page-content">
+                {{ .Content }}
+            </div>
+        </article>
+        
+        <!-- Comments Section -->
+        {{ partial "comments.html" . }}
+    </main>
+</div>
+{{ end }}

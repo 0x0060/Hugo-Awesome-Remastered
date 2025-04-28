@@ -1,0 +1,100 @@
+/////////////// 1. main colors /////////////////
+$dark-accent-color: #a3a59f;
+$dark-background-main: #101315; // Background Color Main
+$dark-background-second: #14181a; // Background Color second codeblock pre p etc 
+$dark-border-color: #1c1f21; // TOC, Code, etc background
+$dark-title-color: #a3a59f; //header title color h1h2h3h4h5
+$dark-text-color: #a3a59f; // Text Color Main
+$dark-text-link-color: #a3a59f;
+$dark-text-link-color-active: #5c5e58;
+$dark-smoke: #a3a59f; // shadow color
+$dark-gray: $dark-text-link-color-active;
+$dark-go-top-bg: $dark-background-second;
+$dark-go-top-bg-hover: $dark-background-second;
+$dark-text-color-code : #a3a59f;
+$dark-text-color-code-parenthesis: #c0c2bb;
+
+
+
+
+//////////////// 3. Fonts preferences /////////////////
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+// $sans-family: Roboto, sans-serif;
+$sans-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+$mono-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+$code-font: "JetBrains Mono", monospace;
+$base-font-size: 16px;
+$medium-font-size: $base-font-size * 0.938;
+$small-font-size: $base-font-size * 0.875;
+$base-line-height: 1.85;
+
+// Font weight
+// $light-weight: 300; // uncomment if necessary
+$normal-weight: 400;
+$bold-weight: 700;
+// $black-weight: 900; // uncomment if necessary
+
+//////////////// 4.Responsive design (media queries) /////////////////
+$wide-size: 890px;
+$narrow-size: 720px;
+
+// Padding unit
+$spacing-full: 30px;
+$spacing-half: $spacing-full / 2;
+
+// Screen sizes
+$on-mobile: 768px;
+$on-tablet: 769px;
+$on-desktop: 1024px;
+$on-widescreen: 1152px;
+
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+@mixin relative-font-size($ratio) {
+    font-size: $base-font-size * $ratio;
+}
+
+//////////////// 2. Light Colors /////////////////
+$text-base-color: #101315; // Background Color Main
+$text-link-blue: #757575;
+$text-link-blue-active: #757575;
+$bloquote-border: #a3a59f;
+$blockquote-text: #696969;
+$inline-code-text: #363636;
+$inline-code-bg: #d8dbe2;
+$toc-bg: #edecec;
+$go-top-bg: #dfdfdf97;
+$go-top-bg-hover: #dfe0e3;
+
+$black: #101315;
+$light: #ececec;
+$smoke: #d2c7c7;
+$gray: #838383;
+$white: #fff;
+
+//////////////// 5. Import all sass files /////////////////
+
+@import "fonts";
+@import "base";
+@import "navbar";
+@import "layout";
+@import "post";
+@import "tag";
+@import "code";
+
+@import "tableOfContent";
+@import "miscellaneous";
+@import "dark";
+@import "listpage";
+@import "custom";
+
+{{ with .Site.Params.goToTop }}
+@import "goToTop";
+{{ end }}
+
+

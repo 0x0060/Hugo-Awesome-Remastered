@@ -1,0 +1,36 @@
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0; /* No space between date and author */
+    font-size: 14px; /* Adjust font size if needed */
+}
+
+.post-meta time {
+    font-weight: bold;
+    margin-right: 7px; /* Optional: Adds a little space between the date and "by" */
+}
+
+.post-meta .post-author {
+    font-weight: normal;
+}
+
+.post-meta .post-author a {
+    text-decoration: none;
+}
+
+.post-meta .post-author a:hover {
+    text-decoration: underline;
+}
+
+html.dark .post-author {
+    color: $dark-text-color;
+}
+
+
+.post-author a::after {
+    display: none;
+}
+
+pre code {
+    tab-size: 4;
+}

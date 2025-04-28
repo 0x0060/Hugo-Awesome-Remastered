@@ -1,0 +1,25 @@
+{{- define "main" -}}
+<div class="wrapper list-page">
+    <header class="header">
+        <h1 class="header-title center">{{ .Title }}</h1>
+    </header>
+    <main class="page-content" aria-label="Content">
+        {{ range .Pages.GroupByDate "2006" }}
+        {{ $year := .Key }}
+        <h2 class="post-year">{{ $year }}</h2>
+
+        {{/* Create a list of posts for each month, with month as heading */}}
+        {{ range .Pages.GroupByDate "January" }}
+        {{ $month := .Key }}
+        <h3 class="post-month">{{ $month }}</h3>
+
+        {{ range (where .Pages ".Params.unlisted" "!=" "true") }}
+        {{ partial "postCard" . }}
+        {{ end }}
+
+        {{ end }}
+
+        {{ end }}
+    </main>
+</div>
+{{- end -}}

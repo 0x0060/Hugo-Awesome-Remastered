@@ -1,0 +1,453 @@
+:root {
+  --bord: 240 3.7% 15.9%;
+  --tw-border-opacity: 1;
+  --bd: hsl(var(--bord) / var(--tw-border-opacity));
+}
+
+@mixin dark-mode {
+  body {
+    color: $dark-text-color;
+    background-color: $dark-background-main;
+  }
+
+
+  // Headings
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $dark-text-color;
+  }
+
+
+  // Table
+  table {
+    thead {
+      color: $dark-text-color;
+      border-color: dark-border-color;
+    }
+
+    th,
+    td,
+    tr {
+      border-color: dark-border-color;
+    }
+  }
+
+  // Post
+  .page-content {
+    a {
+      color: $dark-text-link-color;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $dark-text-link-color-active;
+      }
+    }
+
+    h3 {
+      border-color: dark-border-color;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      .anchor-head {
+        color: $dark-text-link-color;
+      }
+    }
+  }
+
+  // ToC
+  .toc {
+    background-color: $dark-background-second;
+  }
+
+  // Go to top
+  #totop {
+    color: $dark-text-color;
+    background-color: $dark-go-top-bg;
+
+    &:hover {
+      background-color: $dark-go-top-bg-hover;
+    }
+  }
+
+  // Inline code
+  li>code,
+  p>code {
+    font-size: 0.9em;
+    padding: 1px 3px;
+    position: relative;
+    top: -1px;
+    color: $dark-text-color;
+    background-color: $dark-background-second;
+    border-radius: 2px;
+    border: 1px solid rgba(128, 128, 128, 0.1);
+  }
+
+  // kbd tag
+  kbd {
+    color: $dark-text-color;
+    background-color: $dark-background-second;
+  }
+
+  // horizontal rule
+  hr {
+    border-color: $dark-border-color;
+  }
+
+  // Post Meta
+  .post-meta {
+    color: $dark-gray;
+
+    time {
+      &::after {
+        background-color: $dark-background-second;
+      }
+    }
+
+    span[itemprop="author"] {
+      border-color: $dark-border-color;
+    }
+  }
+
+  // Link
+  a {
+    color: inherit;
+    text-decoration-color: $dark-smoke;
+
+    &:hover {
+      color: $dark-text-link-color;
+    }
+
+    &:focus {
+      // outline-color: rgba(44, 118, 246, 0.6);
+    }
+  }
+
+  // List
+  li {
+    &:before {
+      color: $dark-text-color;
+    }
+  }
+
+  // Blockquote
+  blockquote {
+    color: $dark-text-color;
+    border-color: $dark-accent-color;
+  }
+
+  // Strong, Bold
+  strong,
+  b {
+    color: $dark-text-color;
+  }
+
+  // Navbar
+  .navbar {
+    border-color: $dark-border-color;
+
+    .menu {
+      a#mode {
+        .mode-sunny {
+          display: block;
+        }
+
+        .mode-moon {
+          display: none;
+        }
+      }
+
+      .menu-link {
+        color: $dark-text-color;
+      }
+
+      @include media-query($on-mobile) {
+        background-color: $dark-background-main;
+        border-color: dark-border-color;
+
+        input[type="checkbox"]:checked~.trigger {
+          background: $dark-background-main;
+        }
+      }
+    }
+  }
+
+  // Post Item
+  .post-item {
+    &:not(:first-child) {
+      border-color: $dark-border-color;
+    }
+
+    .post-item-date {
+      color: $dark-text-color;
+    }
+
+    .post-item-title {
+      a {
+        color: $dark-text-color;
+
+        &:hover,
+        &focus {
+          color: $dark-text-color;
+        }
+      }
+    }
+  }
+
+  // Post Navigation
+  .post-nav {
+    border-color: dark-border-color;
+
+    .post-nav-item {
+      font-weight: $bold-weight;
+
+      .post-title {
+        color: $dark-text-color;
+        opacity: 0.9;
+      }
+
+      &:hover,
+      &:focus {
+        .post-title {
+          color: $dark-text-link-color-active;
+        }
+      }
+
+      .nav-arrow {
+        color: $dark-gray;
+      }
+    }
+
+    @include media-query($on-mobile) {
+      .post-nav-item:nth-child(even) {
+        border-color: dark-border-color;
+      }
+    }
+  }
+
+  // Footer
+  .footer {
+    span.footer_item {
+      color: $dark-text-color;
+    }
+
+    a.footer_item:not(:last-child) {
+      color: $dark-text-color;
+    }
+
+    .footer_copyright {
+      color: $dark-gray;
+      opacity: 1;
+    }
+  }
+
+  // 404 Page
+  .not-found {
+    .title {
+      color: $dark-text-color;
+      text-shadow: 1px 0px 0px $dark-text-link-color;
+    }
+
+    .phrase {
+      color: $dark-text-color;
+    }
+
+    .solution {
+      color: $dark-text-link-color;
+    }
+
+    .solution:hover {
+      color: $dark-text-link-color-active;
+    }
+  }
+
+  .search-article {
+    input[type="search"] {
+      color: $dark-text-color;
+
+      &::-webkit-input-placeholder {
+        color: rgba(128, 128, 128, 0.8);
+      }
+    }
+  }
+
+  pre {
+    background-color: $dark-background-second !important;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  .modal-content {
+    background: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 8px;
+  }
+  
+  .close-button {
+    float: right;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .chroma .nx {
+    color: $dark-text-color-code !important;
+  }
+
+  .chroma .p {
+    color: $dark-text-color-code-parenthesis !important;
+  }
+  
+}
+
+// support JS disabled environment with media query
+@media (prefers-color-scheme: dark) {
+  // use "light" class to avoid style conflicts in js enabled environment
+  html:not(.light) {
+    @include dark-mode()
+  }
+}
+
+html.dark {
+  @include dark-mode()
+}
+
+
+html.dark pre {
+  margin: 0px !important;
+  // width: 100% !important;
+}
+
+html.dark .toc {
+  background-color: $dark-background-second !important;
+}
+
+@media screen and (max-width: 768px) {
+  .menu .menu-icon {
+    margin-right: 20px !important;
+  }
+}
+
+@mixin light-mode {
+  @media screen and (max-width: 768px) {
+    .menu .menu-icon {
+      margin-right: 20px !important;
+    }
+  }
+  html.dark pre {
+    margin: 0px !important;
+    border: 1px solid $dark-background-second !important;
+    // width: 100% !important;
+  }
+}
+
+
+html.dark code {
+  color: $dark-text-color !important;
+}
+
+html.dark pre {
+  border: 1px solid $dark-border-color !important;
+  // width: 100% !important;
+}
+
+
+html.dark li > code, html.dark p > code {
+  background-color: $dark-background-second !important; 
+  border: 1px solid $dark-border-color !important;
+}
+
+html.dark #totop svg {
+  background-color: $dark-background-second !important; 
+  border: 1px solid $dark-border-color !important;
+  
+}
+
+html.dark .toc {
+  background-color: $dark-background-second !important; 
+  border: 1px solid $dark-border-color !important;
+
+}
+
+html.dark input:is([type="radio"], [type="checkbox"]):is(:disabled, :disabled:active, :disabled:hover:active) {
+  background-color: $dark-background-second !important; 
+  border: 1px solid $dark-border-color !important;
+
+}
+
+html.dark .post-meta time {
+  color: $dark-text-color !important;
+}
+
+
+html.dark .post-item:not(:first-child) {
+  border-color: $dark-border-color !important;
+}
+
+html.dark .navbar{
+  border-color: $dark-border-color !important;
+}
+
+
+html.dark table th, html.dark table td, html.dark table tr {
+  border-color: $dark-border-color !important;
+}
+
+html.dark .post-item .post-item-title a {
+  text-decoration: none;
+}
+
+
+html.dark p {
+  color: $dark-text-color !important;
+}
+
+html.dark .page-content a {
+  color: $dark-accent-color !important;
+}
+
+.page-content a {
+  color: $dark-accent-color !important;
+}
+
+.post-item .post-item-title a {
+  color:  $dark-background-main !important;
+}
+
+html.dark .post-item .post-item-title a {
+  color: $dark-text-color !important;
+}
+
+html.dark ::selection {
+  background-color: $dark-accent-color;
+  color: $dark-background-main;
+}
+
+::selection {
+  background-color: $dark-accent-color;
+  color: #fff;
+}
+
+html.dark table th, html.dark table td, html.dark table tr {
+  border-color: $dark-border-color !important;
+}
+
